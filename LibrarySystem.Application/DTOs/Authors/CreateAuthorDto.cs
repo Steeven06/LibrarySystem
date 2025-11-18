@@ -4,7 +4,8 @@ using System.Text;
 
 namespace LibrarySystem.Application.DTOs.Authors
 {
-    internal class CreateAuthorDto
+    public class CreateAuthorDto
     {
+        public string FullName { get; set; }
     }
 }

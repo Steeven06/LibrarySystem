@@ -4,7 +4,8 @@ using System.Text;
 
 namespace LibrarySystem.Application.DTOs.Loans
 {
-    internal class ReturnLoanDto
+    public class ReturnLoanDto
     {
+        public DateTime ReturnDate { get; set; }
     }
 }

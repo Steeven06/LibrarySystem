@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace LibrarySystem.Application.Interfaces
 {
     internal interface IBooksRepository
     {
-        Task AddBookAsync(Book book);
+        Task AddBookAsync(Books book);
 
     }
 }

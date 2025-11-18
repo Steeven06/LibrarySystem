@@ -18,7 +18,7 @@ namespace LibrarySystem.Domain.Entities
             public Books Book { get; set; }
 
             public Guid UserId { get; set; }
-            public LibraryUser User { get; set; }
+            public User User { get; set; }
         }
 
     }

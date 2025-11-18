@@ -4,7 +4,12 @@ using System.Text;
 
 namespace LibrarySystem.Application.DTOs.Authors
 {
-    internal class Class1
-    {
-    }
+    
+        public class AuthorDto
+        {
+            public Guid Id { get; set; }
+            public string FullName { get; set; }
+        }
+    
+
 }

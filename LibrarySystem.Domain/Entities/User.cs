@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LibrarySystem.Domain.Entities
 {
-    public class LibraryUser
+    public class User
     {
        
             public Guid Id { get; set; }
