@@ -4,7 +4,16 @@ using System.Text;
 
 namespace LibrarySystem.Application.DTOs.Books
 {
-    internal class UpdateBookDto
+    public class UpdateBookDto
     {
+        public string Title { get; set; }
+       
+        public string Description { get; set; } 
+        public int Quantity { get; set; }
+        public int AvailableQuantity { get; set; }
+        public string ImageUrl { get; set; }
+        public string Year { get; set; }
+        public Guid AuthorId { get; set; }
+        public Guid CategoryId { get; set; }
     }
 }

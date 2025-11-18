@@ -11,8 +11,10 @@ namespace LibrarySystem.Domain.Entities
             public Guid Id { get; set; }
             public string Title { get; set; }
 
-            public string ISBN { get; set; }
-            public int Quantity { get; set; }  // Total de ejemplares
+            public string? Description { get; set; }// Descripción del libro
+        public int Year { get; set; }// Año de publicación
+        public string? ImageUrl { get; set; }// Portada del libro
+        public int Quantity { get; set; }  // Total de ejemplares
             public int AvailableQuantity { get; set; } // Libros disponibles
 
             // Relaciones

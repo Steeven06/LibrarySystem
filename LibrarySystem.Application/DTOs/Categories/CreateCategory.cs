@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LibrarySystem.Application.DTOs.Category
+namespace LibrarySystem.Application.DTOs.Categories
 {
-    internal class CreateCategory
+    public  class CreateCategory
     {
+        public string Name { get; set; }
     }
 }

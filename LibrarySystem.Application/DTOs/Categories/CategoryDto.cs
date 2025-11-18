@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LibrarySystem.Application.DTOs.Category
+namespace LibrarySystem.Application.DTOs.Categories
 {
-    internal class CategoryDto
+    public class CategoryDto
     {
+        public Guid Id { get; set; }
+        public string Name { get; set; }
     }
 }
