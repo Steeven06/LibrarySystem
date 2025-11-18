@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using LibrarySystem.Domain.Entities;
 
 namespace LibrarySystem.Domain.Interfaces
 {
-    internal class ILoanRepository
+    public interface ILoanRepository
     {
+        Task<List<Loan>> GetAllAsync();
+        Task<Loan?> GetByIdAsync(Guid id);
+        Task AddAsync(Loan loan);
+        Task UpdateAsync(Loan loan);
     }
 }

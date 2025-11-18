@@ -11,5 +11,6 @@ namespace LibrarySystem.Application.DTOs.Loans
         public DateTime? ReturnDate { get; set; }
         public Guid BookId { get; set; }
         public Guid UserId { get; set; }
+        
     }
 }

@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using LibrarySystem.Domain.Entities;
 
 namespace LibrarySystem.Domain.Interfaces
 {
-    internal class IBookRepository
+    public interface IBookRepository
     {
+        Task<List<Books>> GetAllAsync();
+        Task<Books?> GetByIdAsync(Guid id);
+        Task AddAsync(Books book);
+        Task UpdateAsync(Books book);
+        Task DeleteAsync(Guid id);
     }
 }
