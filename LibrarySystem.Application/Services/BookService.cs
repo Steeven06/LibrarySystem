@@ -1,10 +1,11 @@
 ﻿using LibrarySystem.Application.DTOs.Books;
+using LibrarySystem.Application.Interfaces;
 using LibrarySystem.Domain.Entities;
 using LibrarySystem.Domain.Interfaces;
 
 namespace LibrarySystem.Application.Services
 {
-    public class BookService
+    public class BookService : IBookService
     {
         private readonly IBookRepository _bookRepo;
         private readonly IAuthorRepository _authorRepo;
@@ -37,6 +38,27 @@ namespace LibrarySystem.Application.Services
                 CategoryName = b.Category.Name
             }).ToList();
         }
+        public async Task<BookDto?> GetByIdAsync(Guid id)
+        {
+            var b = await _bookRepo.GetByIdAsync(id);
+
+            if (b == null)
+                return null;
+
+            return new BookDto
+            {
+                Id = b.Id,
+                Title = b.Title,
+                Description = b.Description,
+                Year = b.Year,
+                ImageUrl = b.ImageUrl,
+                Quantity = b.Quantity,
+                AvailableQuantity = b.AvailableQuantity,
+                AuthorFullName = b.Author.FullName,
+                CategoryName = b.Category.Name
+            };
+        }
+
 
         public async Task<Guid> CreateAsync(CreateBookDto dto)
         {

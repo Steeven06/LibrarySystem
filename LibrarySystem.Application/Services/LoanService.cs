@@ -1,10 +1,11 @@
 ﻿using LibrarySystem.Application.DTOs.Loans;
 using LibrarySystem.Domain.Entities;
 using LibrarySystem.Domain.Interfaces;
+using LibrarySystem.Application.Interfaces;
 
 namespace LibrarySystem.Application.Services
 {
-    public class LoanService
+    public class LoanService : ILoanService
     {
         private readonly ILoanRepository _loanRepo;
         private readonly IBookRepository _bookRepo;
@@ -34,6 +35,22 @@ namespace LibrarySystem.Application.Services
             }).ToList();
         }
 
+        public async Task<LoanDto?> GetByIdAsync(Guid id)
+        {
+            var loan = await _loanRepo.GetByIdAsync(id);
+            if (loan == null) return null;
+
+            return new LoanDto
+            {
+                Id = loan.Id,
+                BookId = loan.BookId,
+                UserId = loan.UserId,
+                LoanDate = loan.LoanDate,
+                ReturnDate = loan.ReturnDate
+            };
+        }
+
+
         public async Task<Guid> CreateAsync(CreateLoanDto dto)
         {
             var book = await _bookRepo.GetByIdAsync(dto.BookId);
@@ -61,6 +78,7 @@ namespace LibrarySystem.Application.Services
 
             return loan.Id;
         }
+
 
         public async Task ReturnBookAsync(Guid loanId)
         {

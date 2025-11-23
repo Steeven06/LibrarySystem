@@ -1,11 +1,12 @@
 ﻿using LibrarySystem.Application.DTOs.Categories;
 using LibrarySystem.Domain.Entities;
 using LibrarySystem.Domain.Interfaces;
+using LibrarySystem.Application.Interfaces;
 
 
 namespace LibrarySystem.Application.Services
 {
-    public class CategoryService
+    public class CategoryService : ICategoryService
     {
         private readonly ICategoryRepository _repository;
 

@@ -1,10 +1,11 @@
 ﻿using LibrarySystem.Application.DTOs.Users;
 using LibrarySystem.Domain.Entities;
+using LibrarySystem.Application.Interfaces;
 using LibrarySystem.Domain.Interfaces;
 
 namespace LibrarySystem.Application.Services
 {
-    public class UserService
+    public class UserService: IUserService
     {
         private readonly IUserRepository _repository;
 
@@ -20,7 +21,8 @@ namespace LibrarySystem.Application.Services
             return users.Select(u => new UserDto
             {
                 Id = u.Id,
-                FullName = u.FullName
+                FullName = u.FullName,
+                Phone=u.Phone
             }).ToList();
         }
 
@@ -32,7 +34,8 @@ namespace LibrarySystem.Application.Services
             return new UserDto
             {
                 Id = user.Id,
-                FullName = user.FullName
+                FullName = user.FullName,
+                Phone=user.Phone
             };
         }
 
@@ -41,7 +44,8 @@ namespace LibrarySystem.Application.Services
             var user = new User
             {
                 Id = Guid.NewGuid(),
-                FullName = dto.FullName
+                FullName = dto.FullName,
+                Phone= dto.Phone
             };
 
             await _repository.AddAsync(user);
@@ -56,6 +60,7 @@ namespace LibrarySystem.Application.Services
                 throw new Exception("User not found");
 
             user.FullName = dto.FullName;
+            user.Phone = dto.Phone;
 
             await _repository.UpdateAsync(user);
         }
