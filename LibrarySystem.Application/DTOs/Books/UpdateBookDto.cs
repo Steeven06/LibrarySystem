@@ -12,7 +12,7 @@ namespace LibrarySystem.Application.DTOs.Books
         public int Quantity { get; set; }
         public int AvailableQuantity { get; set; }
         public string ImageUrl { get; set; }
-        public string Year { get; set; }
+        public int Year { get; set; }
         public Guid AuthorId { get; set; }
         public Guid CategoryId { get; set; }
     }

@@ -4,8 +4,9 @@ using System.Text;
 
 namespace LibrarySystem.Application.DTOs.Categories
 {
-    public class UpdateCategory
+    public class UpdateCategoryDto
     {
-           public string Name { get; set; }
+      
+        public string Name { get; set; }
     }
 }
